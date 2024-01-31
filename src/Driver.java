@@ -2,12 +2,17 @@ import java.util.Scanner;
 public class Driver {
     public static void main(String[] args) {
         Driver driver = new Driver();
-        driver.processOrder();
-        driver.runMenu();
+        //driver.processOrder();
+        //driver.runMenu();
 
     }
     Scanner input = new Scanner(System.in);
     Store store;
+
+    private Driver() {
+        store = new Store();
+        this.runMenu();
+    }
 
     private int mainMenu(){
         System.out.print("""
@@ -32,7 +37,7 @@ public class Driver {
         while (option != 0){
 
             switch (option){
-                case 1 -> printProducts();
+                case 1 -> addProduct();
                 case 2 -> printProducts();
                 case 3 -> printCurrentProducts();
                 case 4 -> printAverageProductPrice();
@@ -83,16 +88,6 @@ public class Driver {
         System.out.println("Product List:");
         System.out.println(store.listProducts());
 
-    }
-    private void processOrder(){
-        System.out.print("How many Products would you like to have in your Store?  ");
-        int numberProducts = input.nextInt();
-
-        store = new Store();
-
-        for (int i = 0; i < numberProducts; i++){
-            addProduct();
-        }
     }
 
     private void printCurrentProducts(){
