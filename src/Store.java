@@ -8,7 +8,7 @@ public class Store {
 
 
     public boolean add(Product product) {
-        return products.add(product);
+        return this.products.add(product);
     }
     public String listProducts() {
         String prodList = "";
